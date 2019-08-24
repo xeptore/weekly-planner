@@ -1,10 +1,12 @@
 <script>
   import { tick, createEventDispatcher } from "svelte";
+
   const dispatch = createEventDispatcher();
 
   export let value = "-";
   export let day = "";
   export let index = 0;
+  export let filter = '';
   let inTypeMode = false;
 
   const handleDoubleClick = async e => {
@@ -22,7 +24,8 @@
     dispatch("change", {
       value,
       index,
-      day
+      day,
+      type: filter,
     });
   };
   const handleFocus = e => {
