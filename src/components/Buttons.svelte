@@ -1,12 +1,13 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  export let selected = 1;
+  import { FILTERS } from "../util";
+
+  export let selected = FILTERS.ALL;
 
   const dispatch = createEventDispatcher();
 
   const buildClickHandler = x => () => {
-    console.log(`${x} has been clicked!`);
     dispatch("change", {
       selected: x
     });
@@ -23,21 +24,24 @@
   <div class="buttons-container">
     <button
       class="large ui black button"
-      on:click={buildClickHandler(0)}
-      class:positive={selected === 0}>
-      Odd
+      on:click={buildClickHandler(FILTERS.ODD)}
+      disabled={selected === FILTERS.ODD}
+      class:positive={selected === FILTERS.ODD}>
+      ODD
     </button>
     <button
       class="large ui black button"
-      on:click={buildClickHandler(1)}
-      class:positive={selected === 1}>
-      Fixed
+      on:click={buildClickHandler(FILTERS.ALL)}
+      disabled={selected === FILTERS.ALL}
+      class:positive={selected === FILTERS.ALL}>
+      ALL
     </button>
     <button
       class="large ui black button"
-      on:click={buildClickHandler(2)}
-      class:positive={selected === 2}>
-      Even
+      on:click={buildClickHandler(FILTERS.EVEN)}
+      disabled={selected === FILTERS.EVEN}
+      class:positive={selected === FILTERS.EVEN}>
+      EVEN
     </button>
   </div>
 </div>
