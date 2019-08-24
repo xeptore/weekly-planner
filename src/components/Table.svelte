@@ -1,8 +1,10 @@
 <script>
   import { createEventDispatcher } from "svelte";
+
   import Cell from "./Cell.svelte";
 
   export let rows = [];
+  export let filter = "";
 </script>
 
 <table
@@ -20,11 +22,16 @@
     </tr>
   </thead>
   <tbody>
-    {#each rows as row (row.key)}
+    {#each rows as day (day.key)}
       <tr>
-        <td class="right aligned">{row.day}</td>
-        {#each row.data as d, idx}
-          <Cell value={d} on:change day={row.day} index={idx} />
+        <td class="right aligned">{day.name}</td>
+        {#each day.parts as part, idx}
+          <Cell
+            value={part[filter]}
+            on:change
+            day={day.name}
+            {filter}
+            index={idx} />
         {/each}
       </tr>
     {/each}
