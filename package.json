@@ -10,19 +10,18 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "babel-eslint": "^10.0.2",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.2",
     "eslint-plugin-svelte3": "^2.7.3",
-    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.20.0",
+    "rollup": "^1.20.1",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "serve": "^11.0.0",
-    "svelte": "^3.9.0",
+    "svelte": "^3.9.1",
     "uuid": "^3.3.3"
   },
   "dependencies": {
