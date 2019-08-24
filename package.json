@@ -22,7 +22,8 @@
     "rollup-plugin-terser": "^5.1.1",
     "serve": "^11.0.0",
     "svelte": "^3.9.1",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "ws": "^7.1.2"
   },
   "dependencies": {
     "sirv-cli": "^0.4.4"
