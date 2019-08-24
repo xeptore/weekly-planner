@@ -25,9 +25,6 @@
       day
     });
   };
-  const handleChange = e => {
-    value = e.target.value;
-  };
   const handleFocus = e => {
     e.target.setSelectionRange(0, e.target.value.length);
   };
@@ -49,12 +46,11 @@
     <form on:submit|preventDefault|stopPropagation={handleSubmit} class="form">
       <input
         id="input"
+        bind:value
         class="form--input"
-        on:change={handleChange}
         on:focus={handleFocus}
         on:blur={handleSubmit}
-        type="text"
-        {value} />
+        type="text" />
     </form>
   {:else}{value}{/if}
 </td>
