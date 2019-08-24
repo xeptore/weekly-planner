@@ -1,55 +1,8 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import Cell from "./Cell.svelte";
-  import range from "lodash/range";
-  import { indexFromDay } from "../util";
-  import immutable from "immutable";
-  import uuid from "uuid/v4";
 
-  const rest = range(6).map(() => "-");
-
-  let rows = immutable.fromJS([
-    {
-      day: "Saturday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Sunday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Monday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Tuesday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Wednesday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Thursday",
-      data: [...rest],
-      key: uuid()
-    },
-    {
-      day: "Friday",
-      data: [...rest],
-      key: uuid()
-    }
-  ]);
-
-  const handleChange = ({ detail }) => {
-    const day = indexFromDay(detail.day);
-    const { index, value } = detail;
-    rows = rows.setIn([day, index + 1], value);
-  };
+  export let rows = [];
 </script>
 
 <table
@@ -57,7 +10,7 @@
   column table">
   <thead>
     <tr>
-      <th class="center aligned" />
+      <th class="right aligned" />
       <th class="center aligned">8-10</th>
       <th class="center aligned">10-12</th>
       <th class="center aligned">12-14</th>
@@ -67,16 +20,11 @@
     </tr>
   </thead>
   <tbody>
-    {#each rows.toArray() as row}
+    {#each rows as row (row.key)}
       <tr>
-        <td>{row.get('day')}</td>
-        {#each row.get('data').toArray() as x, idx (`${row.get('key')}`)}
-          {@debug x}
-          <Cell
-            value={x}
-            on:change={handleChange}
-            day={row.get('day')}
-            index={idx} />
+        <td class="right aligned">{row.day}</td>
+        {#each row.data as d, idx}
+          <Cell value={d} on:change day={row.day} index={idx} />
         {/each}
       </tr>
     {/each}
