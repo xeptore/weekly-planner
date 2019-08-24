@@ -1,20 +1,20 @@
-export const indexFromDay = (day) => {
-  switch (day) {
-    case 'Saturday':
-      return 0;
-    case 'Sunday':
-      return 1;
-    case 'Monday':
-      return 2;
-    case 'Tuesday':
-      return 3;
-    case 'Wednesday':
-      return 4;
-    case 'Thursday':
-      return 5;
-    case 'Friday':
-      return 6;
-    default:
-      return -1;
-  }
+export function cloneDeepRows(thing, {day, index, value}) {
+  return thing.map(x => {
+    if (day == x.day) {
+      return {
+        day: x.day,
+        key: x.key,
+        data: [
+          ...x.data.slice(0, index),
+          value,
+          ...x.data.slice(index + 1),
+        ],
+      };
+    };
+    return {
+      day: x.day,
+      key: x.key,
+      data: [...x.data],
+    };
+  });
 }
