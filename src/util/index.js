@@ -1,20 +1,31 @@
-export function cloneDeepRows(thing, {day, index, value}) {
-  return thing.map(x => {
-    if (day == x.day) {
+export const FILTERS = {
+  EVEN: 'EVEN',
+  ODD: 'ODD',
+  ALL: 'ALL'
+};
+
+export function cloneDeepRows(rows, {day, index, type, value}) {
+  return rows.map(x => {
+    if (day === x.name) {
       return {
-        day: x.day,
+        name: x.name,
         key: x.key,
-        data: [
-          ...x.data.slice(0, index),
-          value,
-          ...x.data.slice(index + 1),
-        ],
+        parts: [
+          ...x.parts.slice(0, index).map(x => Object.assign({}, x)),
+          type === 'ALL' ? Object.assign({}, x.parts[index], {
+            'ODD': value,
+            'EVEN': value,
+            'ALL': value,
+          }) :
+                           Object.assign({}, x.parts[index], {[type]: value}),
+          ...x.parts.slice(index + 1).map(x => Object.assign({}, x)),
+        ]
       };
-    };
+    }
     return {
-      day: x.day,
+      name: x.name,
       key: x.key,
-      data: [...x.data],
+      parts: x.parts.map(p => Object.assign({}, p))
     };
   });
 }
