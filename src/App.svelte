@@ -18,7 +18,16 @@
 
 <style>
   .wrapper {
-    margin-top: 1rem;
+    padding-top: 2rem;
+  }
+
+  span {
+    position: fixed;
+    bottom: 0;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    padding: .5rem;
   }
 </style>
 
@@ -26,3 +35,5 @@
   <Table {rows} {filter} on:change={handleTableCellChange} />
   <Buttons selected={filter} on:change={handleFilterChange} />
 </div>
+
+<span>made with <strong>&#10084;</strong> by <strong><a href="https://github.com/xeptore">xeptore</a></strong></span>
