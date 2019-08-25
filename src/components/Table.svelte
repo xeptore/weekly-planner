@@ -6,8 +6,7 @@
 </script>
 
 <table
-  class="ui large celled definition inverted very padded middle aligned seven
-  column table">
+  class="ui large celled definition inverted very padded middle aligned seven column table unstackable">
   <thead>
     <tr>
       <th class="right aligned" />
@@ -25,7 +24,7 @@
         <td class="right aligned">{day.name}</td>
         {#each day.parts as part, idx}
           <Cell
-            value={part[filter]}
+            {part}
             on:change
             day={day.name}
             {filter}
