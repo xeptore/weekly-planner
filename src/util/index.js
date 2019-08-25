@@ -4,28 +4,58 @@ export const FILTERS = {
   ALL: 'ALL',
 };
 
+function clonePart(part) {
+  return {
+    ALL: Object.assign({}, part.ALL),
+    EVEN: Object.assign({}, part.EVEN),
+    ODD: Object.assign({}, part.ODD),
+  };
+}
+
+function reducePart(part, type, value) {
+  const newPart = clonePart(part);
+  switch (type) {
+  case FILTERS.ALL: {
+    newPart.ALL.value = value;
+    newPart.EVEN = { value: 'X', enable: false };
+    newPart.ODD = { value: 'X', enable: false };
+    break;
+  }
+  case FILTERS.EVEN: {
+    newPart.EVEN.value = value;
+    newPart.ALL = { value: 'X', enable: false };
+    break;
+  }
+  case FILTERS.ODD: {
+    newPart.ODD.value = value;
+    newPart.ALL = { value: 'X', enable: false };
+    break;
+  }
+  default: {
+    break;
+  }
+  }
+  return newPart;
+}
+
 export function cloneDeepRows(rows, { day, index, type, value }) {
   return rows.map(x => {
     if (day === x.name) {
+      const newPart = reducePart(x.parts[index], type, value);
       return {
         name: x.name,
         key: x.key,
         parts: [
-          ...x.parts.slice(0, index).map(x => Object.assign({}, x)),
-          type === 'ALL' ? Object.assign({}, x.parts[index], {
-            'ODD': value,
-            'EVEN': value,
-            'ALL': value,
-          }) :
-            Object.assign({}, x.parts[index], { [type]: value }),
-          ...x.parts.slice(index + 1).map(x => Object.assign({}, x)),
+          ...x.parts.slice(0, index).map(part => clonePart(part)),
+          newPart,
+          ...x.parts.slice(index + 1).map(part => clonePart(part)),
         ],
       };
     }
     return {
       name: x.name,
       key: x.key,
-      parts: x.parts.map(p => Object.assign({}, p)),
+      parts: x.parts.map(part => clonePart(part)),
     };
   });
 }
