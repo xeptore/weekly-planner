@@ -10,12 +10,12 @@
   <thead>
     <tr>
       <th class="right aligned" />
-      <th class="center aligned">8-10</th>
-      <th class="center aligned">10-12</th>
-      <th class="center aligned">12-14</th>
-      <th class="center aligned">14-16</th>
-      <th class="center aligned">16-18</th>
-      <th class="center aligned">18-20</th>
+      <th class="center aligned">۸-۱۰</th>
+      <th class="center aligned">۱۰-۱۲</th>
+      <th class="center aligned">۱۲-۱۴</th>
+      <th class="center aligned">۱۴-۱۶</th>
+      <th class="center aligned">۱۶-۱۸</th>
+      <th class="center aligned">۱۸-۲۰</th>
     </tr>
   </thead>
   <tbody>

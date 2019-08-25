@@ -22,13 +22,13 @@ function buildParts() {
 
 export function buildInitialRows() {
   return [
-    'Saturday',
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
+    'شنبه',
+    'یک‌شنبه',
+    'دوشنبه',
+    'سه‌شنبه',
+    'چهارشنبه',
+    'پنج‌شنبه',
+    'شنبه',
   ].map(d => ({
     name: d,
     parts: buildParts(),
