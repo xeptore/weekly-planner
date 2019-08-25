@@ -18,7 +18,7 @@
 
 <style>
   .wrapper {
-    padding-top: 2rem;
+    padding-top: 3rem;
   }
 
   span {
