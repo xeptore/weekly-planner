@@ -40,7 +40,7 @@ function reducePart(part, type, value) {
 
 export function cloneDeepRows(rows, { day, index, type, value }) {
   return rows.map(x => {
-    if (day === x.name) {
+    if (day === x.name && x.parts[index][type].value !== value) {
       const newPart = reducePart(x.parts[index], type, value);
       return {
         name: x.name,
