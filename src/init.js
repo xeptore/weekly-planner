@@ -28,7 +28,6 @@ export function buildInitialRows() {
     'سه‌شنبه',
     'چهارشنبه',
     'پنج‌شنبه',
-    'جمعه',
   ].map(d => ({
     name: d,
     parts: buildParts(),
