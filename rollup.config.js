@@ -2,7 +2,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
-import {terser} from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -23,7 +23,7 @@ export default {
           // a separate file — better for performance
           css: css => {
             css.write('public/style.css');
-          }
+          },
         }),
 
         // If you have external dependencies installed from
@@ -34,7 +34,7 @@ export default {
         resolve({
           browser: true,
           dedupe: importee =>
-              importee === 'svelte' || importee.startsWith('svelte/')
+            importee === 'svelte' || importee.startsWith('svelte/'),
         }),
         commonjs(),
 
@@ -44,7 +44,7 @@ export default {
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
-        production && terser()
+        production && terser(),
       ],
-  watch: {clearScreen: false}
+  watch: { clearScreen: false },
 };
