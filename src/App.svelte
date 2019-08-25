@@ -37,4 +37,4 @@
   <Buttons selected={filter} on:change={handleFilterChange} />
 </div>
 
-<span>made with <strong>&#10084;</strong> by <strong><a href="https://github.com/xeptore">xeptore</a></strong></span>
+<span>made with <strong>&#10084;</strong> by <strong><a target="_blank" href="https://github.com/xeptore">xeptore</a></strong></span>
