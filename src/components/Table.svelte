@@ -5,6 +5,12 @@
   export let filter = '';
 </script>
 
+<style>
+.smile {
+  font-family: sans-serif;
+}
+</style>
+
 <table
   class="ui large celled definition inverted very padded middle aligned seven column table unstackable">
   <thead>
@@ -32,5 +38,9 @@
         {/each}
       </tr>
     {/each}
+      <tr>
+        <td class="right aligned">جمعه</td>
+        <td colspan="6" class="center aligned"> تعطیله، برو حال کن <span class="smile">:)</span></td>
+        </tr>
   </tbody>
 </table>
