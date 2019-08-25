@@ -7,7 +7,6 @@
         "svelte"
     ],
     "javascript.validate.enable": false,
-    "editor.formatOnSave": true,
     "typescript.validate.enable": false,
     "editor.tabSize": 2,
     "eslint.enable": true
