@@ -22,6 +22,7 @@
   }
 
   span {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: fixed;
     bottom: 0;
     display: inline-block;
