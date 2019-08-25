@@ -1,13 +1,12 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  import Cell from "./Cell.svelte";
+  import Cell from './Cell.svelte';
 
   export let rows = [];
+  export let filter = '';
 </script>
 
 <table
-  class="ui large celled definition inverted very padded middle aligned eight
-  column table">
+  class="ui large celled definition inverted very padded middle aligned seven column table unstackable">
   <thead>
     <tr>
       <th class="right aligned" />
@@ -20,11 +19,16 @@
     </tr>
   </thead>
   <tbody>
-    {#each rows as row (row.key)}
+    {#each rows as day (day.key)}
       <tr>
-        <td class="right aligned">{row.day}</td>
-        {#each row.data as d, idx}
-          <Cell value={d} on:change day={row.day} index={idx} />
+        <td class="right aligned">{day.name}</td>
+        {#each day.parts as part, idx}
+          <Cell
+            {part}
+            on:change
+            day={day.name}
+            {filter}
+            index={idx} />
         {/each}
       </tr>
     {/each}

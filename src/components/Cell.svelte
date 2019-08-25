@@ -1,32 +1,59 @@
 <script>
-  import { tick, createEventDispatcher } from "svelte";
+  import { tick, createEventDispatcher } from 'svelte';
+
   const dispatch = createEventDispatcher();
 
-  export let value = "-";
-  export let day = "";
+  export let part = {
+    ALL: {
+      value: '-',
+      enable: true,
+    },
+    ODD: {
+      value: '-',
+      enable: true,
+    },
+    EVEN: {
+      value: '-',
+      enable: true,
+    },
+  };
+  export let day = '';
   export let index = 0;
+  export let filter = '';
   let inTypeMode = false;
+  $: value = part[filter].value;
+  $: enable = part[filter].enable && part[filter].value !== 'X';
 
-  const handleDoubleClick = async e => {
+  const handleDoubleClick = async () => {
+    if (!enable) {
+      return;
+    }
+
     inTypeMode = true;
 
     await tick();
-    document.getElementById("input").focus();
+    document.getElementById('input').focus();
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!inTypeMode) {
       return;
     }
 
     inTypeMode = false;
-    dispatch("change", {
+    dispatch('change', {
       value,
       index,
-      day
+      day,
+      type: filter,
     });
+
+    await tick();
   };
-  const handleFocus = e => {
+  const handleFocus = (e) => {
     e.target.setSelectionRange(0, e.target.value.length);
+  };
+  const handleChange = (e) => {
+    value = e.target.value;
   };
 </script>
 
@@ -36,21 +63,36 @@
     width: 100%;
   }
 
+  .input-wrapper,
+  .ui.input > input,
   .form--input {
     text-align: center;
   }
+  td.disable {
+    cursor: not-allowed;
+    user-select: none;
+  }
 </style>
 
-<td class="center aligned selectable" on:dblclick={handleDoubleClick}>
-  {#if inTypeMode}
-    <form on:submit|preventDefault|stopPropagation={handleSubmit} class="form">
-      <input
-        id="input"
-        bind:value
-        class="form--input"
-        on:focus={handleFocus}
-        on:blur={handleSubmit}
-        type="text" />
+<td class="center aligned selectable" on:dblclick={handleDoubleClick} class:disable={!enable}>
+  {#if inTypeMode && enable}
+    <form
+      on:submit|preventDefault|stopPropagation={handleSubmit}
+      class="form"
+      autocomplete="off">
+      <div class="ui input focus input-wrapper">
+        <input
+          id="input"
+          autocomplete="off"
+          on:change={handleChange}
+          {value}
+          class="form--input"
+          on:focus={handleFocus}
+          on:blur={handleSubmit}
+          type="text" />
+      </div>
     </form>
-  {:else}{value}{/if}
+  {:else if part[filter].value === 'X'}
+    {part['ALL'].value}
+  {:else}{part[filter].value}{/if}
 </td>

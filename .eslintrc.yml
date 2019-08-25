@@ -2,11 +2,67 @@ parser: babel-eslint
 parserOptions:
   sourceType: module
   ecmaVersion: 2019
+extends:
+  - eslint:recommended
 env:
   es6: true
   browser: true
 overrides:
-  - files: '**/*.svelte'
-    processor: 'svelte3/svelte3'
+  - files: "**/*.svelte"
+    processor: "svelte3/svelte3"
 plugins:
   - svelte3
+rules:
+  object-curly-spacing:
+    - 2
+    - always
+  array-bracket-spacing:
+    - 2
+    - never
+  keyword-spacing: 2
+  no-trailing-spaces: 2
+  no-multiple-empty-lines:
+    - 2
+    - max: 2
+      maxEOF: 0
+  eol-last: 2
+  no-tabs: 2
+  no-nested-ternary: 2
+  no-extra-semi: 2
+  constructor-super: 2
+  no-var: 2
+  max-len:
+    - 1
+    - code: 85
+      tabWidth: 2
+      ignoreComments: true
+  no-func-assign: 2
+  consistent-return: 2
+  curly:
+    - 2
+    - all
+  default-case: 2
+  eqeqeq:
+    - 2
+    - always
+  no-multi-spaces: 2
+  array-bracket-newline:
+    - 2
+    - consistent
+  comma-dangle:
+    - 2
+    - always-multiline
+  comma-spacing: 2
+  no-console: 0
+  indent:
+    - error
+    - 2
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
