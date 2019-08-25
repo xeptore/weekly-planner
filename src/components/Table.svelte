@@ -1,14 +1,12 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-
-  import Cell from "./Cell.svelte";
+  import Cell from './Cell.svelte';
 
   export let rows = [];
-  export let filter = "";
+  export let filter = '';
 </script>
 
 <table
-  class="ui large celled definition inverted very padded middle aligned eight
+  class="ui large celled definition inverted very padded middle aligned seven
   column table">
   <thead>
     <tr>

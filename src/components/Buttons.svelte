@@ -1,15 +1,15 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from 'svelte';
 
-  import { FILTERS } from "../util";
+  import { FILTERS } from '../util';
 
   export let selected = FILTERS.ALL;
 
   const dispatch = createEventDispatcher();
 
-  const buildClickHandler = x => () => {
-    dispatch("change", {
-      selected: x
+  const buildClickHandler = (x) => () => {
+    dispatch('change', {
+      selected: x,
     });
   };
 </script>

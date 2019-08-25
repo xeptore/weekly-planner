@@ -1,6 +1,6 @@
 import App from './App.svelte';
 
-import {buildInitialRows, INITIAL_FILTER} from './init';
+import { buildInitialRows, INITIAL_FILTER } from './init';
 
 const app = new App({
   target: document.body,

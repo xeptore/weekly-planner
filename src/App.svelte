@@ -1,10 +1,10 @@
 <script>
-  import { cloneDeepRows } from "./util";
+  import { cloneDeepRows } from './util';
 
-  import Table from "./components/Table.svelte";
-  import Buttons from "./components/Buttons.svelte";
+  import Table from './components/Table.svelte';
+  import Buttons from './components/Buttons.svelte';
 
-  export let filter = "";
+  export let filter = '';
   export let rows = [];
 
   const handleFilterChange = ({ detail }) => {
