@@ -5,9 +5,18 @@ import { FILTERS } from './util';
 const range = [0, 1, 2, 3, 4, 5];
 function buildParts() {
   return range.map(() => ({
-    [FILTERS.ODD]: '-',
-    [FILTERS.EVEN]: '-',
-    [FILTERS.ALL]: '-',
+    [FILTERS.ODD]: {
+      value: '-',
+      enable: true,
+    },
+    [FILTERS.EVEN]: {
+      value: '-',
+      enable: true,
+    },
+    [FILTERS.ALL]: {
+      value: '-',
+      enable: true,
+    },
   }));
 }
 
