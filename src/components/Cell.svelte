@@ -66,7 +66,11 @@
   .input-wrapper,
   .ui.input > input,
   .form--input {
+    font-family: "yekan";
     text-align: center;
+  }
+  td.selectable {
+    cursor: pointer;
   }
   td.disable {
     cursor: not-allowed;
@@ -75,6 +79,7 @@
 </style>
 
 <td class="center aligned selectable" on:dblclick={handleDoubleClick} class:disable={!enable}>
+  {@debug part, filter}
   {#if inTypeMode && enable}
     <form
       on:submit|preventDefault|stopPropagation={handleSubmit}
