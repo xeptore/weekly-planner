@@ -7,6 +7,7 @@ extends:
 env:
   es6: true
   browser: true
+  node: true
 overrides:
   - files: "**/*.svelte"
     processor: "svelte3/svelte3"

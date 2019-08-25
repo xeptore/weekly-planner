@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte';
 
-  import { FILTERS } from '../util';
+  import { FILTERS } from '../util/constants';
 
   export let selected = FILTERS.ALL;
 

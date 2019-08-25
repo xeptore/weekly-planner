@@ -1,8 +1,14 @@
-export const FILTERS = {
-  EVEN: 'EVEN',
-  ODD: 'ODD',
-  ALL: 'ALL',
-};
+import { STORAGE_KEY, FILTERS } from './constants';
+
+
+function store(data) {
+  try {
+    const serialized = JSON.stringify(data);
+    localStorage.setItem(STORAGE_KEY, serialized);
+  } catch (err) {
+    console.error(`Error storing state: ${err}`);
+  }
+}
 
 function clonePart(part) {
   return {
@@ -39,7 +45,7 @@ function reducePart(part, type, value) {
 }
 
 export function cloneDeepRows(rows, { day, index, type, value }) {
-  return rows.map(x => {
+  const cloned = rows.map(x => {
     if (day === x.name && x.parts[index][type].value !== value) {
       const newPart = reducePart(x.parts[index], type, value);
       return {
@@ -58,4 +64,8 @@ export function cloneDeepRows(rows, { day, index, type, value }) {
       parts: x.parts.map(part => clonePart(part)),
     };
   });
+
+  store(cloned);
+
+  return cloned;
 }

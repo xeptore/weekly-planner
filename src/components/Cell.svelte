@@ -79,7 +79,6 @@
 </style>
 
 <td class="center aligned selectable" on:dblclick={handleDoubleClick} class:disable={!enable}>
-  {@debug part, filter}
   {#if inTypeMode && enable}
     <form
       on:submit|preventDefault|stopPropagation={handleSubmit}

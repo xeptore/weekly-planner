@@ -1,11 +1,12 @@
 import App from './App.svelte';
 
-import { buildInitialRows, INITIAL_FILTER } from './init';
+import { getInitialStates, INITIAL_FILTER } from './init';
+
 
 const app = new App({
   target: document.body,
   props: {
-    rows: buildInitialRows(),
+    rows: getInitialStates(),
     filter: INITIAL_FILTER,
   },
 });
