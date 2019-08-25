@@ -26,19 +26,19 @@
       class="large ui black button"
       on:click={buildClickHandler(FILTERS.ODD)}
       disabled={selected === FILTERS.ODD}>
-      ODD
+      فرد
     </button>
     <button
       class="large ui black button"
       on:click={buildClickHandler(FILTERS.ALL)}
       disabled={selected === FILTERS.ALL}>
-      ALL
+      ثابت
     </button>
     <button
       class="large ui black button"
       on:click={buildClickHandler(FILTERS.EVEN)}
       disabled={selected === FILTERS.EVEN}>
-      EVEN
+      زوج
     </button>
   </div>
 </div>
