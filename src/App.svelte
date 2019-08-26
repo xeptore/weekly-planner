@@ -1,6 +1,7 @@
 <script>
   import { cloneDeepRows } from './util';
 
+  import Info from './components/Info.svelte';
   import Table from './components/Table.svelte';
   import Buttons from './components/Buttons.svelte';
 
@@ -33,6 +34,7 @@
 </style>
 
 <div class="ui container wrapper">
+  <Info/>
   <Table {rows} {filter} on:change={handleTableCellChange} />
   <Buttons selected={filter} on:change={handleFilterChange} />
 </div>
