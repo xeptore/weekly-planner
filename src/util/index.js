@@ -12,9 +12,18 @@ function store(data) {
 
 function clonePart(part) {
   return {
-    ALL: Object.assign({}, part.ALL),
-    EVEN: Object.assign({}, part.EVEN),
-    ODD: Object.assign({}, part.ODD),
+    ALL: {
+      value: part.ALL.value,
+      enable: part.ALL.enable,
+    },
+    EVEN: {
+      value: part.EVEN.value,
+      enable: part.EVEN.enable,
+    },
+    ODD: {
+      value: part.ODD.value,
+      enable: part.ODD.enable,
+    },
   };
 }
 
