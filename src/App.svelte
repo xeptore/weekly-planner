@@ -19,7 +19,7 @@
 
 <style>
   .wrapper {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 
   span {
