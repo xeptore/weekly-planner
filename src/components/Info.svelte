@@ -19,6 +19,7 @@
 
   .popup {
     display: none;
+    text-align: justify;
     position: relative;
     right: 0;
     margin-top: 5px;
