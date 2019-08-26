@@ -18,6 +18,6 @@ git commit -m "deploy build to github pages"
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:xeptore/weekly-planner-svelte.git master:gh-pages
+git push -f git@github.com:xeptore/weekly-planner.git master:gh-pages
 
 cd -
