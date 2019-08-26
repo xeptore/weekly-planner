@@ -37,4 +37,4 @@
   <Buttons selected={filter} on:change={handleFilterChange} />
 </div>
 
-<span>made to <i dir="ltr" title="work!" class="fas fa-cog"></i> by <strong><a target="_blank" href="https://github.com/xeptore">xeptore</a></strong></span>
+<span>made to <i dir="ltr" title="work!" class="cog icon"></i> by <strong><a target="_blank" href="https://github.com/xeptore">xeptore</a></strong></span>
