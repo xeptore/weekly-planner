@@ -1,15 +1,15 @@
 {
-  "name": "svelte-app",
+  "name": "weekly-planner",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xeptore/svelte-weekly-planner.git"
+    "url": "git+https://github.com/xeptore/weekly-planner.git"
   },
   "author": "xeptore <xeptore@gmail.com>",
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-svelte3": "^2.7.3",
