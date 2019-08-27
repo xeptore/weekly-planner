@@ -20,7 +20,7 @@
   .popup {
     display: none;
     max-width: none;
-    width: 30%;
+    width: 85%;
     text-align: justify;
     position: relative;
     right: 0;
