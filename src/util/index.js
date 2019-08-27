@@ -1,14 +1,6 @@
-import { STORAGE_KEY, FILTERS } from './constants';
+import { FILTERS } from './constants';
+import { store } from './storage';
 
-
-function store(data) {
-  try {
-    const serialized = JSON.stringify(data);
-    localStorage.setItem(STORAGE_KEY, serialized);
-  } catch (err) {
-    console.error(`Error storing state: ${err}`);
-  }
-}
 
 function clonePart(part) {
   return {

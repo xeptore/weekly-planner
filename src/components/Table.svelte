@@ -6,13 +6,14 @@
 </script>
 
 <style>
-.smile {
-  font-family: sans-serif;
-}
+  .smile {
+    font-family: sans-serif;
+  }
 </style>
 
 <table
-  class="ui large celled definition inverted very padded middle aligned seven column table unstackable">
+  class="ui large celled definition inverted very padded middle aligned seven
+  column table unstackable">
   <thead>
     <tr>
       <th class="right aligned" />
@@ -29,18 +30,16 @@
       <tr>
         <td class="right aligned">{day.name}</td>
         {#each day.parts as part, idx}
-          <Cell
-            {part}
-            on:change
-            day={day.name}
-            {filter}
-            index={idx} />
+          <Cell {part} on:change day={day.name} {filter} index={idx} />
         {/each}
       </tr>
     {/each}
-      <tr>
-        <td class="right aligned">جمعه</td>
-        <td colspan="6" class="center aligned"> تعطیله، برو حال کن <span class="smile">:)</span></td>
-        </tr>
+    <tr>
+      <td class="right aligned">جمعه</td>
+      <td colspan="6" class="center aligned">
+        تعطیله، برو حال کن
+        <span class="smile">:)</span>
+      </td>
+    </tr>
   </tbody>
 </table>
